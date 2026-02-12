@@ -34,9 +34,9 @@
 
 
 import json
-from typing import List, Optional
+from typing import Any, List, Optional
 
-from pydantic import validator
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -47,19 +47,25 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
-    BACKEND_CORS_ORIGINS: List[str] = []
+    # Allow any type to prevent pydantic from crashing on empty env var
+    BACKEND_CORS_ORIGINS: Any = []
     GEMINI_API_KEY: Optional[str] = None
-    OPENAI_API_KEY: Optional[str] = None
 
-    @validator("BACKEND_CORS_ORIGINS", pre=True)
-    def assemble_cors_origins(cls, v: str | List[str]) -> List[str] | str:
-        if isinstance(v, str):
+    @field_validator("BACKEND_CORS_ORIGINS", mode="before")
+    def assemble_cors_origins(cls, v: Any) -> List[str]:
+        if isinstance(v, str) and v:
             if v.startswith("["):
-                return json.loads(v)
-            return [i.strip() for i in v.split(",")]
-        elif isinstance(v, List):
+                try:
+                    return json.loads(v)
+                except json.JSONDecodeError:
+                    # Handle case where string starts with '[' but is not valid JSON
+                    return [i.strip() for i in v.split(",")]
+            else:
+                return [i.strip() for i in v.split(",")]
+        elif isinstance(v, list):
             return v
-        raise ValueError("BACKEND_CORS_ORIGINS must be a string or a list of strings")
+        # Handle case where v is None or empty string
+        return []
 
     class Config:
         env_file = ".env"
@@ -68,4 +74,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-

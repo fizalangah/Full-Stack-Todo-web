@@ -11,13 +11,10 @@ nest_asyncio.apply()
 
 # Setup Gemini Client
 gemini_api_key = os.getenv("GEMINI_API_KEY")
-if not gemini_api_key:
-    # Fallback to OPENAI_API_KEY if GEMINI_API_KEY not set, or raise error
-    gemini_api_key = os.getenv("OPENAI_API_KEY")
-    
+        
 if not gemini_api_key:
     # Just a warning during import, will fail at runtime if used
-    print("WARNING: GEMINI_API_KEY/OPENAI_API_KEY not found.")
+    print("WARNING: GEMINI_API_KEY not found.")
 
 external_client = AsyncOpenAI(
     api_key=gemini_api_key or "dummy", # Prevent init failure if key missing during build
