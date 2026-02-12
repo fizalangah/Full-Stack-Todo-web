@@ -100,28 +100,28 @@ export default function DashboardPage() {
   if (!user) return null; // AuthProvider handles redirect 
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-50">
       <nav className="glass-panel sticky top-0 z-40 shadow-sm border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <div className="bg-gradient-to-br from-violet-600 to-indigo-600 p-2 rounded-xl mr-3 shadow-md animate-scale-in">
+              <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-2 rounded-xl mr-3 shadow-md animate-scale-in">
                 <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <span className="text-xl font-black tracking-tight text-slate-900  text-white animate-fade-in">
-                Task<span className="text-violet-600">Master</span>
+              <span className="text-xl font-black tracking-tight text-slate-900 animate-fade-in">
+                Task<span className="text-emerald-600">Master</span>
               </span>
             </div>
             <div className="flex items-center space-x-6 animate-fade-in stagger-1">
-              <div className="hidden sm:flex items-center px-4 py-1.5 bg-slate-100/10 rounded-full border border-white/20 shadow-sm">
+              <div className="hidden sm:flex items-center px-4 py-1.5 bg-slate-100 rounded-full border border-slate-200 shadow-sm">
                 <div className="h-2 w-2 bg-emerald-400 rounded-full mr-2.5 animate-pulse shadow-sm"></div>
-                <span className="text-sm font-bold text-white">{user.name}</span>
+                <span className="text-sm font-bold text-slate-800">{user.name}</span>
               </div>
               <button
                 onClick={logout}
-                className="text-white hover:text-white/80 text-sm font-black transition-colors duration-200"
+                className="text-slate-600 hover:text-slate-900 text-sm font-bold transition-colors duration-200"
               >
                 Sign out
               </button>
@@ -134,22 +134,22 @@ export default function DashboardPage() {
         <header className="max-w-3xl mx-auto mb-10 animate-slide-up">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
             <div>
-              <h1 className="text-4xl font-black text-white tracking-tight mb-2">
+              <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">
                 Dashboard
               </h1>
-              <p className="text-white text-lg font-bold">
-                Overview <span className="text-white/40 mx-2">•</span> 
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-white/20 text-white border border-white/30">
+              <p className="text-slate-500 text-lg font-medium">
+                Overview <span className="text-slate-300 mx-2">•</span> 
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
                   {todos.filter(t => !t.is_completed).length} Tasks Pending
                 </span>
               </p>
             </div>
             <button
                 onClick={() => setShowAddForm(!showAddForm)}
-                className={`group relative inline-flex items-center px-6 py-3 border border-white/20 text-sm font-bold rounded-xl text-white shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+                className={`group relative inline-flex items-center px-6 py-3 border border-transparent text-sm font-bold rounded-xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
                   showAddForm 
-                  ? 'bg-slate-800 hover:bg-slate-900' 
-                  : 'bg-violet-600 hover:bg-violet-700 shadow-violet-500/40'
+                  ? 'bg-slate-700 hover:bg-slate-800 text-white' 
+                  : 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/40 text-white'
                 }`}
             >
                 <span className="mr-2 text-lg leading-none">{showAddForm ? '✕' : '+'}</span>
@@ -173,18 +173,18 @@ export default function DashboardPage() {
 
           {isLoadingTodos ? (
             <div className="flex flex-col items-center justify-center py-24 animate-fade-in">
-               <div className="h-10 w-10 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4"></div>
-               <p className="text-white font-black text-sm tracking-widest uppercase">Fetching tasks...</p>
+               <div className="h-10 w-10 border-4 border-slate-200 border-t-slate-600 rounded-full animate-spin mb-4"></div>
+               <p className="text-slate-500 font-bold text-sm tracking-widest uppercase">Fetching tasks...</p>
             </div>
           ) : todos.length === 0 ? (
-            <div className="text-center py-24 glass-card rounded-2xl animate-slide-up border-dashed border-2 border-white/20">
-              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-white/10 mb-4 border border-white/20">
-                <svg className="h-10 w-10 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="text-center py-24 bg-white rounded-2xl animate-slide-up border-dashed border-2 border-slate-200">
+              <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-slate-100 mb-4 border border-slate-200">
+                <svg className="h-10 w-10 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-black text-white mb-1">No tasks today</h3>
-              <p className="text-white/80 font-bold">Ready to start something new? Create a task!</p>
+              <h3 className="text-xl font-black text-slate-800 mb-1">No tasks today</h3>
+              <p className="text-slate-500 font-medium">Ready to start something new? Create a task!</p>
             </div>
           ) : (
             <div className="space-y-4 animate-slide-up pb-20">
@@ -244,7 +244,7 @@ export default function DashboardPage() {
 
             
 
-                                  className="fixed bottom-6 right-6 h-16 w-16 bg-white rounded-full shadow-[0_0_20px_rgba(139,92,246,0.6)] border-2 border-violet-200 flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50 overflow-hidden cursor-pointer animate-fade-in hover:shadow-[0_0_30px_rgba(139,92,246,0.8)] ring-4 ring-violet-500/20"
+                                  className="fixed bottom-6 right-6 h-16 w-16 bg-white rounded-full shadow-[0_0_20px_rgba(5,150,105,0.4)] border-2 border-emerald-200 flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50 overflow-hidden cursor-pointer animate-fade-in hover:shadow-[0_0_30px_rgba(5,150,105,0.6)] ring-4 ring-emerald-500/20"
 
             
 
@@ -256,7 +256,7 @@ export default function DashboardPage() {
 
             
 
-                                  <div className="absolute inset-0 bg-violet-500/10 animate-pulse rounded-full"></div>
+                                  <div className="absolute inset-0 bg-emerald-500/10 animate-pulse rounded-full"></div>
 
             
 
@@ -300,7 +300,7 @@ export default function DashboardPage() {
 
                   <div 
 
-                    className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-40 border-l border-slate-200 ${
+                    className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-slate-50 shadow-2xl transform transition-transform duration-300 ease-in-out z-40 border-l border-slate-200 ${
 
                       showChat ? 'translate-x-0' : 'translate-x-full'
 
@@ -312,7 +312,7 @@ export default function DashboardPage() {
 
                        {/* Header for Chat Sidebar */}
 
-                       <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-slate-50/50 backdrop-blur-sm">
+                       <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 bg-white/50 backdrop-blur-sm">
 
                           <h3 className="font-bold text-slate-700 flex items-center gap-2">
 
@@ -336,12 +336,9 @@ export default function DashboardPage() {
 
                        </div>
 
-                                              <div className="flex-1 overflow-hidden relative">
-
+                                              <div className="flex-1 overflow-hidden relative bg-white">
                                                  <ChatInterface onUpdate={fetchTodos} />
-
                                               </div>
-
                                            </div>
 
                        

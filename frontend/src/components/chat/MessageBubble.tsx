@@ -13,7 +13,7 @@ export function MessageBubble({ role, content }: MessageBubbleProps) {
     <div className={`flex items-start gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden ${
-          isUser ? "bg-blue-600 text-white" : "bg-white border border-gray-200"
+          isUser ? "bg-emerald-600 text-white" : "bg-slate-100 border border-slate-200"
         }`}
       >
         {isUser ? (
@@ -29,10 +29,10 @@ export function MessageBubble({ role, content }: MessageBubbleProps) {
         )}
       </div>
       <div
-        className={`p-3 rounded-lg max-w-[80%] ${
+        className={`p-3 rounded-lg max-w-[80%] shadow-sm ${
           isUser
-            ? "bg-blue-600 text-white rounded-tr-none"
-            : "bg-gray-100 text-gray-800 rounded-tl-none"
+            ? "bg-emerald-600 text-white rounded-tr-none"
+            : "bg-slate-100 text-slate-700 rounded-tl-none"
         }`}
       >
         {content}

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0D261F; /* Dark Green */
-  --foreground: #f8fafc;
+  --background: #ffffff; /* White */
+  --foreground: #1f2937; /* Dark Gray */
 }
 
 @theme inline {
@@ -21,32 +21,33 @@ body {
   min-height: 100vh;
 }
 
-/* --- Premium Grid Background --- */
+/* --- Subtle Grid Background for Light Theme --- */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+    linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(circle at 50% 0%, black 40%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 0%, black 40%, transparent 80%);
+  opacity: 0.5;
 }
 
-/* --- Glassmorphism Utilities --- */
+/* --- Glassmorphism Utilities for Light Theme --- */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .glass-card {
-  background: rgba(30, 41, 59, 0.4);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* --- Animations --- */
