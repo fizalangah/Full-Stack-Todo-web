@@ -62,10 +62,10 @@ export function ChatInterface({ onUpdate }: ChatInterfaceProps) {
 
   return (
     <div className="flex flex-col h-full max-w-4xl mx-auto p-4 pb-10">
-      <div className="flex-1 overflow-y-auto mb-4 space-y-4 p-4 bg-white rounded-lg border shadow-sm">
+      <div className="flex-1 overflow-y-auto mb-4 space-y-4 p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
         {messages.length === 0 && (
-          <div className="text-center text-gray-500 mt-10 flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full overflow-hidden mb-2 border border-gray-200">
+          <div className="text-center text-slate-500 mt-10 flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full overflow-hidden mb-2 border border-slate-200">
               <Image 
                 src="/bot-icon.webp" 
                 alt="Bot" 
@@ -74,7 +74,7 @@ export function ChatInterface({ onUpdate }: ChatInterfaceProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <p>Start a conversation with your Todo Assistant!</p>
+            <p className="font-semibold">Start a conversation with your Todo Assistant!</p>
             <p className="text-sm">Try "Add a task to buy milk" or "What tasks do I have?"</p>
           </div>
         )}
@@ -85,7 +85,7 @@ export function ChatInterface({ onUpdate }: ChatInterfaceProps) {
         
         {loading && (
            <div className="flex items-start gap-3">
-             <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0 overflow-hidden">
+             <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden">
                <Image 
                  src="/bot-icon.webp" 
                  alt="Bot" 
@@ -94,7 +94,7 @@ export function ChatInterface({ onUpdate }: ChatInterfaceProps) {
                  className="w-full h-full object-cover"
                />
              </div>
-             <div className="bg-gray-100 p-3 rounded-lg rounded-tl-none">
+             <div className="bg-slate-100 p-3 rounded-lg rounded-tl-none">
                <span className="animate-pulse">Thinking...</span>
              </div>
            </div>
@@ -107,13 +107,13 @@ export function ChatInterface({ onUpdate }: ChatInterfaceProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 p-3 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white text-slate-800"
+          className="flex-1 p-3 border border-slate-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white text-slate-800"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="bg-violet-600 text-white p-3 rounded-xl hover:bg-violet-700 shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-emerald-600 text-white p-3 rounded-xl hover:bg-emerald-700 shadow-md transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Send size={20} />
         </button>
