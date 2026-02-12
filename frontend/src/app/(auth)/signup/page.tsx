@@ -44,23 +44,23 @@ export default function SignUpPage() {
         <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="glass-panel p-8 sm:p-12 rounded-3xl shadow-2xl border border-white/10 relative overflow-hidden animate-scale-in z-10">
+      <div className="glass-panel p-8 sm:p-12 rounded-3xl shadow-2xl border border-slate-200/80 relative overflow-hidden animate-scale-in z-10">
         {/* Decorative ambient glows inside card */}
-        <div className="absolute -top-24 -left-24 w-48 h-48 bg-fuchsia-500/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
-        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-violet-500/20 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -top-24 -left-24 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-green-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1s' }}></div>
 
         <div className="relative z-10">
           <div className="flex justify-center mb-6">
-            <div className="bg-gradient-to-br from-violet-600 to-indigo-600 p-3 rounded-2xl shadow-lg shadow-violet-500/20">
+            <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-3 rounded-2xl shadow-lg shadow-emerald-500/20">
               <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
               </svg>
             </div>
           </div>
-          <h2 className="text-center text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
+          <h2 className="text-center text-2xl sm:text-3xl font-black text-slate-800 tracking-tight mb-2">
             Create Account
           </h2>
-          <p className="text-center text-slate-400 text-sm mb-8 font-medium">
+          <p className="text-center text-slate-500 text-sm mb-8 font-medium">
             Join us and start organizing your tasks today
           </p>
         </div>
@@ -68,10 +68,10 @@ export default function SignUpPage() {
         <form className="space-y-6 relative z-10" onSubmit={handleSubmit}>
           {error && (
               <div className="rounded-xl bg-rose-500/10 p-4 border border-rose-500/20 flex items-center animate-fade-in">
-                <svg className="h-5 w-5 text-rose-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5 text-rose-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 className="text-sm font-bold text-rose-300">
+                <h3 className="text-sm font-bold text-rose-600">
                     {error}
                 </h3>
               </div>
@@ -79,7 +79,7 @@ export default function SignUpPage() {
           
           <div className="space-y-6">
             <div className="group">
-              <label htmlFor="full-name" className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-widest group-hover:text-white transition-colors">
+              <label htmlFor="full-name" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest group-hover:text-slate-800 transition-colors">
                 Full Name
               </label>
               <input
@@ -88,7 +88,7 @@ export default function SignUpPage() {
                 type="text"
                 autoComplete="name"
                 required
-                className="block w-full bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-xl p-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all outline-none group-hover:border-slate-600"
+                className="block w-full bg-slate-100/80 backdrop-blur-md border border-slate-200/80 rounded-xl p-4 text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all outline-none group-hover:border-slate-300"
                 placeholder="John Doe"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -96,7 +96,7 @@ export default function SignUpPage() {
             </div>
 
             <div className="group">
-              <label htmlFor="email-address" className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-widest group-hover:text-white transition-colors">
+              <label htmlFor="email-address" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest group-hover:text-slate-800 transition-colors">
                 Email address
               </label>
               <input
@@ -105,7 +105,7 @@ export default function SignUpPage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="block w-full bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-xl p-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all outline-none group-hover:border-slate-600"
+                className="block w-full bg-slate-100/80 backdrop-blur-md border border-slate-200/80 rounded-xl p-4 text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all outline-none group-hover:border-slate-300"
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -113,7 +113,7 @@ export default function SignUpPage() {
             </div>
 
             <div className="group">
-              <label htmlFor="password" className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-widest group-hover:text-white transition-colors">
+              <label htmlFor="password" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest group-hover:text-slate-800 transition-colors">
                 Password
               </label>
               <input
@@ -122,7 +122,7 @@ export default function SignUpPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="block w-full bg-slate-900/50 backdrop-blur-md border border-slate-700/50 rounded-xl p-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all outline-none group-hover:border-slate-600"
+                className="block w-full bg-slate-100/80 backdrop-blur-md border border-slate-200/80 rounded-xl p-4 text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all outline-none group-hover:border-slate-300"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -133,15 +133,15 @@ export default function SignUpPage() {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3.5 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600 hover:from-violet-800 hover:via-fuchsia-800 hover:to-pink-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-all duration-300 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:-translate-y-0.5 active:scale-95"
+              className="group relative w-full flex justify-center py-3.5 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-gradient-to-r from-emerald-600 via-green-600 to-teal-700 hover:from-emerald-700 hover:via-green-700 hover:to-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5 active:scale-95"
             >
               Create Account
             </button>
           </div>
         </form>
         <div className="text-sm text-center mt-8 relative z-10">
-          <span className="text-slate-400">Already have an account? </span>
-          <Link href="/signin" className="font-bold text-violet-400 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">
+          <span className="text-slate-500">Already have an account? </span>
+          <Link href="/signin" className="font-bold text-emerald-600 hover:text-emerald-700 transition-colors border-b border-transparent hover:border-emerald-700 pb-0.5">
             Sign in instead
           </Link>
         </div>
