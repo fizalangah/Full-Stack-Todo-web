@@ -16,10 +16,10 @@ interface TodoItemProps {
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, onEdit }) => {
   return (
-    <div className={`group relative flex flex-col sm:flex-row sm:items-center justify-between p-6 rounded-2xl transition-all duration-300 mb-4 overflow-hidden border border-white/5 shadow-sm ${
+    <div className={`group relative flex flex-col sm:flex-row sm:items-center justify-between p-6 rounded-2xl transition-all duration-300 mb-4 overflow-hidden border ${
       todo.is_completed 
-      ? 'bg-white/5 opacity-50' 
-      : 'glass-card hover:bg-white/10 hover:border-violet-500/30 hover:shadow-md hover:-translate-y-0.5'
+      ? 'bg-slate-100 opacity-60' 
+      : 'bg-white hover:bg-emerald-50/50 border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-md hover:-translate-y-0.5'
     }`}>
       
       <div className="flex items-start space-x-4 flex-1 mb-3 sm:mb-0 z-10 pl-1">
@@ -33,7 +33,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
           <div className={`h-6 w-6 rounded-lg border-2 transition-all duration-300 flex items-center justify-center ${
             todo.is_completed 
             ? 'bg-emerald-500 border-emerald-500 shadow-sm' 
-            : 'border-slate-300 bg-white group-hover:border-violet-500 shadow-sm'
+            : 'border-slate-300 bg-white group-hover:border-emerald-500 shadow-sm'
           }`}>
             {todo.is_completed && (
               <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={4}>
@@ -44,14 +44,14 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
         </div>
 
         <div className="flex-1 min-w-0 pt-0.5">
-          <h3 className={`text-lg font-black truncate transition-all duration-300 ${
-            todo.is_completed ? 'text-white/40 line-through decoration-white/40' : 'text-white group-hover:text-white'
+          <h3 className={`text-lg font-bold truncate transition-all duration-300 ${
+            todo.is_completed ? 'text-slate-400 line-through decoration-slate-400' : 'text-slate-800 group-hover:text-emerald-800'
           }`}>
             {todo.title}
           </h3>
           {todo.description && (
-            <p className={`text-sm mt-1 line-clamp-2 transition-colors duration-300 font-bold ${
-              todo.is_completed ? 'text-white/30' : 'text-white/90'
+            <p className={`text-sm mt-1 line-clamp-2 transition-colors duration-300 font-medium ${
+              todo.is_completed ? 'text-slate-400' : 'text-slate-500'
             }`}>
               {todo.description}
             </p>
@@ -62,7 +62,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
       <div className="flex items-center space-x-2 ml-10 sm:ml-4 z-10 sm:opacity-0 sm:translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out">
         <button
           onClick={() => onEdit(todo)}
-          className="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+          className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-200/60 rounded-lg transition-all"
           title="Edit Task"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -71,7 +71,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete, on
         </button>
         <button
           onClick={() => onDelete(todo.id)}
-          className="p-2 text-white/60 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition-all"
+          className="p-2 text-slate-500 hover:text-rose-500 hover:bg-rose-100/60 rounded-lg transition-all"
           title="Delete Task"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
