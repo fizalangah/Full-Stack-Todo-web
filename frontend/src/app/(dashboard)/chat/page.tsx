@@ -80,7 +80,7 @@ export default function ChatPage() {
           >
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                msg.role === "user" ? "bg-blue-600 text-white" : "bg-green-600 text-white"
+                msg.role === "user" ? "bg-emerald-600 text-white" : "bg-slate-200 text-slate-700"
               }`}
             >
               {msg.role === "user" ? <UserIcon size={16} /> : <Bot size={16} />}
@@ -88,8 +88,8 @@ export default function ChatPage() {
             <div
               className={`p-3 rounded-lg max-w-[80%] ${
                 msg.role === "user"
-                  ? "bg-blue-600 text-white rounded-tr-none"
-                  : "bg-gray-100 text-gray-800 rounded-tl-none"
+                  ? "bg-emerald-600 text-white rounded-tr-none"
+                  : "bg-slate-100 text-slate-800 rounded-tl-none"
               }`}
             >
               {msg.content}
@@ -98,10 +98,10 @@ export default function ChatPage() {
         ))}
         {loading && (
            <div className="flex items-start gap-3">
-             <div className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center shrink-0">
+             <div className="w-8 h-8 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center shrink-0">
                <Bot size={16} />
              </div>
-             <div className="bg-gray-100 p-3 rounded-lg rounded-tl-none">
+             <div className="bg-slate-100 p-3 rounded-lg rounded-tl-none">
                <span className="animate-pulse">Thinking...</span>
              </div>
            </div>
@@ -114,13 +114,13 @@ export default function ChatPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
-          className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
           disabled={loading}
         />
         <button
           type="submit"
           disabled={loading || !input.trim()}
-          className="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-emerald-600 text-white p-2 rounded-md hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Send size={20} />
         </button>
