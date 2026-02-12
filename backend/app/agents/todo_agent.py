@@ -1,13 +1,10 @@
 import os
 from agents import Agent, AsyncOpenAI, OpenAIChatCompletionsModel
 from agents.run import RunConfig
-import nest_asyncio
 from .tools import add_task, list_tasks, complete_task, delete_task, update_task
 from dotenv import load_dotenv
 
 load_dotenv()
-# Apply nest_asyncio
-nest_asyncio.apply()
 
 # Setup Gemini Client
 gemini_api_key = os.getenv("GEMINI_API_KEY")
